@@ -17,10 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('service');
-            $table->text('kyc');
-            $table->string('contact_no');
-            $table->string('address');
-            $table->text('business_doc');
+            $table->text('image');
             $table->timestamps();
         });
     }

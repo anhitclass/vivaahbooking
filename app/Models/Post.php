@@ -12,9 +12,13 @@ class Post extends Model
     protected $fillable = [
         'name',
         'service',
-        'kyc',
-        'business_doc',
-        'address',
-        'contact_no',
+        'image',
+        'business_type',
+        'vendor_id'
     ];
+
+    protected $casts = [
+        'image' => 'array',
+    ];
+    
 }

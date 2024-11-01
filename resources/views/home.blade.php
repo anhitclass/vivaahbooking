@@ -32,7 +32,9 @@
         <div class="card-box-main">
           <div class=card>
               @foreach($services as $service)
-                  <p class="service-item" data-id="{{ $service->id }}" value="{{$service->id}}">{{ $service->name }}</p>
+                  <a href="{{ route('VendorsGet', ['id' => $service->id]) }}" class="service-item" data-id="{{ $service->id }}">
+                    {{ $service->name }}
+                  </a>
               @endforeach
           </div>
         </div>
@@ -422,68 +424,4 @@ Service Section
     </footer>
   </div>
 
-  {{-- Service modal --}}
-  <div class="modal fade" id="serviceModal" tabindex="-1" aria-labelledby="serviceModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="serviceModalLabel">Service ID</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <div id="modalContent">
-          </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        </div>
-      </div>
-    </div>
-  </div>
-  
-
-  @endsection
-  @push('scripts')
-  <script>
-      $(document).ready(function() {
-        $.ajaxSetup({
-          headers: {
-              'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-          }
-        });
-          $('.service-item').on('click', function() {
-              var serviceId = $(this).data('id');
-              
-              $.ajax({
-                url: '{{ route('DataGetPost') }}',
-                method: 'POST',
-                dataType: 'json',
-                data: { service_id: serviceId },
-                success: function(response) {
-                    if (response.success && response.posts.length > 0) {
-                      var postHtml = '';
-                      response.posts.forEach(function(post) {
-                          postHtml += '<p><strong>Name:</strong> ' + post.name + '</p>';
-                          postHtml += '<p><strong>Contact No:</strong> ' + post.contact_no + '</p>';
-                          postHtml += '<p><strong>Address:</strong> ' + post.address + '</p>';
-                          postHtml += '<hr>';
-                      });
-                
-                    $('#modalContent').html(postHtml); 
-                    $('#serviceModal').modal('show');
-                  } 
-                  else {
-                    $('#modalContent').html('<p>No posts found for this service.</p>');
-                    $('#serviceModal').modal('show');
-                  }
-                },
-                error: function(xhr, status, error) {
-                    console.error('AJAX Error:', error);
-                }
-              });
-
-          });
-      });
-  </script>
  
-  @endpush
