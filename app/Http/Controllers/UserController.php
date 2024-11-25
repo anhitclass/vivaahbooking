@@ -6,6 +6,12 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Models\Vendor;
 use App\Models\Post;
+use Illuminate\Support\Facades\Auth;
+use Laravel\Socialite\Facades\Socialite;
+use Exception;
+use Illuminate\Support\Str; 
+use App\Models\User;
+use App\Models\Inquiry;
 
 
 class UserController extends Controller
@@ -44,6 +50,55 @@ class UserController extends Controller
     
         return view('vendorpost', compact('post_data'));
     }
+
+    public function create_inquiry(Request $request)
+    {
+        $validated = $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|max:255',
+            'function' => 'required|string|max:255',
+            'venue' => 'required|string|max:255',
+        ]);
+    
+        $validated['user_id'] = auth()->id();
+    
+        Inquiry::create($validated);
+    
+        return response()->json([
+            'success' => true,
+            'message' => 'Inquiry submitted successfully!',
+        ]);
+    }
+    
+
+    // public function redirectToGoogle()
+    // {
+    //     return Socialite::driver('google')->redirect();
+    // }
+
+    // public function handleGoogleCallback()
+    // {
+    //     try {
+    //         $googleUser = Socialite::driver('google')->stateless()->user();
+
+    //         $user = User::firstOrCreate(
+    //             ['email' => $googleUser->getEmail()],
+    //             [
+    //                 'name' => $googleUser->getName(),
+    //                 'google_id' => $googleUser->getId(),
+    //                 'password' => bcrypt(Str::random(24)),
+    //             ]
+    //         );
+
+    //         Auth::login($user);
+
+    //         return redirect()->intended('/home');
+    //     } catch (Exception $e) {
+    //         return redirect()->route('login')->withErrors(['error' => 'Unable to login with Google: ' . $e->getMessage()]);
+    //     }
+    // }
+
+   
     
     
 }

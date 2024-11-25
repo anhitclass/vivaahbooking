@@ -123,6 +123,8 @@
             </div>
         </div>
     </div>
+     {{-- Agent Card --}}
+     <a href="{{route('AgentCreate')}}" class="btn btn-primary mb-4">Wants To be an Agent</a>
 </body>
 
 </html>

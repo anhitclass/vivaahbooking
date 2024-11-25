@@ -41,7 +41,6 @@ class VendorController extends Controller
         $validatedData['password'] = Hash::make($request->input('password'));
 
         Vendor::create($validatedData);
-
         return redirect()->route('login_vendor')->with('success', 'Vendor registered successfully!');
     }
 

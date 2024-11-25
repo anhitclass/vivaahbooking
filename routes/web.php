@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\VendorController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\AgentController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -23,27 +25,35 @@ Route::get('/', function () {
 
 Auth::routes(['verify' => true]);
 
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->middleware(['auth','verified'])->name('home');
 
-Route::middleware(['auth'])->group(function () {
-    
-    // User Routes
-    Route::get('/userchoose', [UserController::class, 'ChooseUser'])->name('chooseuser');
-    Route::get('/all_vendors/{id}', [UserController::class, 'VendorsGet'])->name('VendorsGet');
-    Route::get('/vendorpost/{id}', [UserController::class, 'VendorPost'])->name('VendorPost');
-    Route::get('/services', [UserController::class, 'services'])->name('services');
-    Route::get('/gallery', [UserController::class, 'gallery'])->name('gallery');
-    Route::get('/contactus', [UserController::class, 'contactus'])->name('contactus');
+// User Routes
+Route::get('/userchoose', [UserController::class, 'ChooseUser'])->name('chooseuser');
+Route::get('/all_vendors/{id}', [UserController::class, 'VendorsGet'])->name('VendorsGet');
+Route::get('/vendorpost/{id}', [UserController::class, 'VendorPost'])->name('VendorPost');
+Route::get('/services', [UserController::class, 'services'])->name('services');
+Route::get('/gallery', [UserController::class, 'gallery'])->name('gallery');
+Route::get('/contactus', [UserController::class, 'contactus'])->name('contactus');
+Route::post('/create_inquiry', [UserController::class, 'create_inquiry'])->name('create_inquiry');
 
-    // Vendor Routes
-    Route::get('/vendor_login', [VendorController::class, 'LoginVendor'])->name('login_vendor');
-    Route::post('/login_store', [VendorController::class, 'store'])->name('login_store');
-    Route::get('/create_vendor', [VendorController::class, 'CreateVendor'])->name('create_vendor');
-    Route::post('/store_vendor', [VendorController::class, 'StoreVendor'])->name('store_vendor');
-    Route::get('/dashboard', [VendorController::class, 'dashboard'])->name('dashboard');
 
-    // Posts Routes
-    Route::get('/create_post', [PostController::class, 'CreatePost'])->name('create_post');
-    Route::post('/store_post', [PostController::class, 'StorePost'])->name('store_post');
-    Route::get('/subcategories', [PostController::class, 'getSubcategories'])->name('subcategories_data');
-});
+
+// Vendor Routes
+Route::get('/vendor_login', [VendorController::class, 'LoginVendor'])->name('login_vendor');
+Route::post('/login_store', [VendorController::class, 'store'])->name('login_store');
+Route::get('/create_vendor', [VendorController::class, 'CreateVendor'])->name('create_vendor');
+Route::post('/store_vendor', [VendorController::class, 'StoreVendor'])->name('store_vendor');
+Route::get('/dashboard', [VendorController::class, 'dashboard'])->name('dashboard');
+
+// Posts Routes
+Route::get('/create_post', [PostController::class, 'CreatePost'])->name('create_post');
+Route::post('/store_post', [PostController::class, 'StorePost'])->name('store_post');
+Route::get('/subcategories', [PostController::class, 'getSubcategories'])->name('subcategories_data');
+
+//agent
+Route::get('/agent_create', [AgentController::class, 'AgentCreate'])->name('AgentCreate');
+
+
+
+  

@@ -62,6 +62,9 @@
             <div class="new-to-shaadi">
                 <p>New to VivaahBooking? <a href="{{ route('chooseuser') }}">Sign Up </a></p>
             </div>
+            {{-- <a href="{{ route('auth.google') }}" class="btn btn-primary">
+                Login with Google
+            </a> --}}
         </form>
     </div>
 </body>

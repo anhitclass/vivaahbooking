@@ -4,15 +4,17 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Notifications\Notifiable;
+use App\Notifications\CustomVerifyEmail;
 
-class Vendor extends Authenticatable
+
+class Vendor extends Authenticatable implements MustVerifyEmail
 {
-    use HasFactory;
-    use Notifiable;
-    protected $table='vendors';
-    
+    use HasFactory, Notifiable;
+
+    protected $table = 'vendors';
+
     protected $fillable = [
         'name',
         'email',
@@ -24,11 +26,19 @@ class Vendor extends Authenticatable
         'address',
         'city',
         'state',
-        'pincode'
+        'pincode',
     ];
 
     protected $hidden = [
         'password',
     ];
 
+    protected $casts = [
+        'email_verified_at' => 'datetime',
+    ];
+
+    public function sendEmailVerificationNotification()
+    {
+        $this->notify(new CustomVerifyEmail());
+    }
 }
