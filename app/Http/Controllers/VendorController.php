@@ -20,6 +20,7 @@ class VendorController extends Controller
     }
 
     public function StoreVendor(Request $request){
+
         $validatedData = $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|email|max:255|unique:vendors,email',
@@ -32,6 +33,7 @@ class VendorController extends Controller
             'state' => 'required|string|max:255',
             'city' => 'required|string|max:255',
             'pincode' => 'required|string|max:10',
+            'referral_code'=>'required'
         ]);
 
         if ($request->hasFile('business_certificate')) {
@@ -41,7 +43,7 @@ class VendorController extends Controller
         $validatedData['password'] = Hash::make($request->input('password'));
 
         Vendor::create($validatedData);
-        return redirect()->route('login_vendor')->with('success', 'Vendor registered successfully!');
+        return redirect()->route('BankDetails')->with('success', 'Vendor registered successfully!');
     }
 
     public function store(Request $request)
@@ -69,5 +71,9 @@ class VendorController extends Controller
 
     public function dashboard(){
         return view('vendor.dashboard');
+    }
+
+    public function BankDetails(){
+        return view('vendor.auth.bank_details');
     }
 }

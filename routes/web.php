@@ -44,6 +44,7 @@ Route::get('/vendor_login', [VendorController::class, 'LoginVendor'])->name('log
 Route::post('/login_store', [VendorController::class, 'store'])->name('login_store');
 Route::get('/create_vendor', [VendorController::class, 'CreateVendor'])->name('create_vendor');
 Route::post('/store_vendor', [VendorController::class, 'StoreVendor'])->name('store_vendor');
+Route::get('/bank_details',[VendorController::class,'BankDetails'])->name('BankDetails');
 Route::get('/dashboard', [VendorController::class, 'dashboard'])->name('dashboard');
 
 // Posts Routes
@@ -53,6 +54,8 @@ Route::get('/subcategories', [PostController::class, 'getSubcategories'])->name(
 
 //agent
 Route::get('/agent_create', [AgentController::class, 'AgentCreate'])->name('AgentCreate');
+Route::post('/agent_store',[AgentController::class,'store'])->name('agent_store');
+Route::get('/agent/{id}', [AgentController::class, 'show'])->name('agent_show');
 
 
 

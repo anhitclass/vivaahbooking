@@ -8,13 +8,13 @@
     </ol>
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img class="d-block w-100" src="images/slider 1.jpg" alt="First slide" style="height: 70vh;">
+        <img class="d-block w-100" src="images/slider 1.jpg" alt="First slide" style="height: 80vh;">
       </div>
       <div class="carousel-item">
-        <img class="d-block w-100" src="images/slider 2.jpg" alt="Second slide" style="height: 70vh;">
+        <img class="d-block w-100" src="images/slider 2.jpg" alt="Second slide" style="height: 80vh;">
       </div>
       <div class="carousel-item">
-        <img class="d-block w-100" src="images/slider 3.jpg" alt="Third slide" style="height: 70vh;">
+        <img class="d-block w-100" src="images/slider 3.jpg" alt="Third slide" style="height: 80vh;">
       </div>
     </div>
     <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -26,18 +26,79 @@
       <span class="sr-only">Next</span>
     </a>
   </div>
+
+  <!-- services  -->
   <div class="our-services1" id="couple">
     <div class="content">
         <h2 class="text-center" style="font-family: sans-serif;">Our Services</h2>
+        
         <div class="card-box-main">
-          <div class=card>
-              @foreach($services as $service)
-                  <a href="{{ route('VendorsGet', ['id' => $service->id]) }}" class="service-item" data-id="{{ $service->id }}">
-                    {{ $service->name }}
-                  </a>
-              @endforeach
-          </div>
-        </div>
+    <div class="card-grid">
+        @foreach($services as $service)
+            <a href="{{ route('VendorsGet', ['id' => $service->id]) }}" class="service-item" data-id="{{ $service->id }}">
+                {{-- Hardcoded image paths --}}
+
+                {{-- @if($loop->iteration == 1)
+                    <img src="https://images.pexels.com/photos/29171610/pexels-photo-29171610/free-photo-of-outdoor-wedding-ceremony-at-sunset.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Service 1" class="service-image">
+
+                @elseif($loop->iteration == 2)
+                <img src="https://images.pexels.com/photos/16935894/pexels-photo-16935894/free-photo-of-interior-of-a-restaurant.jpeg" alt="Service 2" class="service-image">
+
+                @elseif($loop->iteration == 3)
+                    <img src="https://images.pexels.com/photos/237272/pexels-photo-237272.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Service 3" class="service-image">
+
+                    @elseif($loop->iteration == 4)
+                    <img src="https://images.pexels.com/photos/1190297/pexels-photo-1190297.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Service 4" class="service-image">
+
+                    @elseif($loop->iteration == 5)
+                    <img src="https://images.pexels.com/photos/15698719/pexels-photo-15698719/free-photo-of-bride-and-orchestra.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Service 5" class="service-image">
+
+                    @elseif($loop->iteration == 6)
+                    <img src="https://images.pexels.com/photos/24334600/pexels-photo-24334600/free-photo-of-groom-in-white-clothing-standing-on-cart-at-indian-wedding.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Service 6" class="service-image">
+
+                    @elseif($loop->iteration == 7)
+                    <img src="https://images.pexels.com/photos/6550354/pexels-photo-6550354.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Service 7" class="service-image">
+
+                    @elseif($loop->iteration == 8)
+                    <img src="https://images.pexels.com/photos/14745476/pexels-photo-14745476.jpeg" alt="Service 8" class="service-image">
+
+                    @elseif($loop->iteration == 9)
+                    <img src="https://images.pexels.com/photos/26186199/pexels-photo-26186199/free-photo-of-woman-in-a-traditional-dress.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Service 9" class="service-image">
+
+                    @elseif($loop->iteration == 10)
+                    <img src="https://images.pexels.com/photos/11066743/pexels-photo-11066743.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Service 10" class="service-image">
+
+                    @elseif($loop->iteration == 11)
+                    <img src="https://images.pexels.com/photos/25309039/pexels-photo-25309039/free-photo-of-person-spraying-cosmetic-on-bride-in-traditional-clothing.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Service 11" class="service-image">
+
+                    @elseif($loop->iteration == 12)
+                    <img src="https://images.pexels.com/photos/21568655/pexels-photo-21568655/free-photo-of-henna-tattoos-on-woman-feet.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Service 12" class="service-image">
+
+                    @elseif($loop->iteration == 13)
+                    <img src="https://images.pexels.com/photos/1024969/pexels-photo-1024969.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Service 13" class="service-image">
+
+                    @elseif($loop->iteration == 14)
+                    <img src="https://images.pexels.com/photos/2039198/pexels-photo-2039198.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Service 14" class="service-image">
+
+                    @elseif($loop->iteration == 15)
+                    <img src="https://images.pexels.com/photos/2531189/pexels-photo-2531189.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Service 15" class="service-image">
+
+                    @elseif($loop->iteration == 16)
+                    <img src="https://images.pexels.com/photos/27068638/pexels-photo-27068638/free-photo-of-back-view-of-a-flower-girl-at-a-wedding.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Service 16" class="service-image">
+
+                    @elseif($loop->iteration == 17)
+                    <img src="https://images.pexels.com/photos/24334712/pexels-photo-24334712/free-photo-of-bride-in-traditional-clothing-in-wedding.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Service 17" class="service-image">
+
+                @else
+                    <img src="{{ asset('images/default.jpg') }}" alt="Default Service" class="service-image">
+
+                @endif --}}
+                <div class="service-name">{{ $service->name }}</div>
+            </a>
+        @endforeach
+    </div>
+</div>
+</div>
        
         {{-- <div class="card-box-main">
             <div class="card1" onclick="redirectToPage('C:/Users/HP/Downloads/wonderful-wedding_free_1-1-0/wonderful-wedding_free_1-1-0/catering.html')">
@@ -132,7 +193,7 @@
           </div>
         </div> --}}
     </div>
-    <center><button class="btn btn-primary" type="submit" style="margin: 30px;"><a href="Service.html" style="text-decoration: none;">Show More</a></button></center>
+    <center><button class="btn btn-primary" type="submit" style="margin: 30px;"><a href="Service.html" style="text-decoration: none; color:white;">Show More</a></button></center>
 </div>
 
 
@@ -224,6 +285,7 @@ Service Section
       <h2 class="h1 text-center pb-3 ww-title" data-aos="zoom-in-down" data-aos-duration="1000" style="font-family: sans-serif;">Photo Gallery</h2>
       <div class="col-md-12 text-center ww-category-filter mb-4"><a class="btn btn-outline-primary ww-filter-button" href="#" data-filter="all">All</a><a class="btn btn-outline-primary ww-filter-button" href="#" data-filter="vacation">Our Vacation</a><a class="btn btn-outline-primary ww-filter-button" href="#" data-filter="party">Party</a><a class="btn btn-outline-primary ww-filter-button" href="#" data-filter="ceremony">Ceremony</a><a class="btn btn-outline-primary ww-filter-button" href="#" data-filter="wedding">Wedding</a></div>
       <div class="ww-gallery" data-aos="fade-zoom-in" data-aos-easing="ease-in-back" data-aos-delay="300" data-aos-duration="1000" data-aos-offset="0">
+
         <div class="card-columns">
           <div class="card" data-groups="[&quot;vacation&quot;,&quot;ceremony&quot;]"><a href="images/gallery-pic-1.jpg" data-toggle="lightbox" data-gallery="ww-gallery"><img class="img-fluid" src="images/gallery-pic-1.jpg" alt="Gallery Pic 1"/></a></div>
           <div class="card" data-groups="[&quot;party&quot;,&quot;wedding&quot;]"><a href="images/gallery-pic-2.jpg" data-toggle="lightbox" data-gallery="ww-gallery"><img class="img-fluid" src="images/gallery-pic-2.jpg" alt="Gallery Pic 2"/></a></div>
@@ -273,7 +335,7 @@ Service Section
                   </select>
                 </div>
               </div>
-              <div class="col-md-6 pb-3">
+              <div class="col-md-6 pb-3"> 
                 <div class="form-group">
                   <label for="events-input">I am Attending</label>
                   <select class="form-control" id="events-input" name="events">
@@ -306,15 +368,17 @@ Service Section
 <div class="ww-footer bg-light">
   <div class="pg-footer">
     <footer class="footer">
-      <svg class="footer-wave-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 100" preserveAspectRatio="none">
+      <!-- <svg class="footer-wave-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 100" preserveAspectRatio="none">
         <path class="footer-wave-path" d="M851.8,100c125,0,288.3-45,348.2-64V0H0v44c3.7-1,7.3-1.9,11-2.9C80.7,22,151.7,10.8,223.5,6.3C276.7,2.9,330,4,383,9.8 c52.2,5.7,103.3,16.2,153.4,32.8C623.9,71.3,726.8,100,851.8,100z"></path>
-      </svg>
+      </svg> -->
       <div class="footer-content">
         <div class="footer-content-column">
           <div class="footer-logo">
             <a class="footer-logo-link" href="#">
               <span class="hidden-link-text">Vivaah Booking</span>
-              <h1>Vivaah Booking</h1>
+              <img src="{{ asset('images/vivaah_booking_logo.png') }}" alt="logo" style="width:150px;">
+
+              <!-- <h1>Vivaah Booking</h1> -->
             </a>
           </div>
           <div class="footer-menu">
@@ -423,5 +487,4 @@ Service Section
       </div>
     </footer>
   </div>
-
- 
+  @endsection

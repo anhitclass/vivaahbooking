@@ -27,6 +27,7 @@ class Vendor extends Authenticatable implements MustVerifyEmail
         'city',
         'state',
         'pincode',
+        'referral_code'
     ];
 
     protected $hidden = [

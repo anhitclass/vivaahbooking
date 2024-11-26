@@ -6,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Login</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="{{ asset('css/forget.css') }}">
 </head>
 <body>
     <div class="container mt-4">
@@ -60,7 +62,7 @@
     
                             <div class="row mb-0">
                                 <div class="col-md-8 offset-md-4">
-                                    <button type="submit" class="btn btn-primary">
+                                    <button disabled type="submit" class="login btn btn-primary">
                                         {{ __('Login') }}
                                     </button>
                                     {{-- @if (Route::has('password.request'))
@@ -78,5 +80,3 @@
     </div>
 </body>
 </html>
-
-

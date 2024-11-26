@@ -16,7 +16,7 @@
                     <div class="card-header">{{ __('Create Agent') }}</div>
     
                     <div class="card-body">
-                        <form method="POST" action=""
+                        <form method="POST" action="{{route('agent_store')}}"
                         enctype="multipart/form-data">
                             @csrf
                             <div class="row mb-3">
@@ -96,6 +96,90 @@
                                     <input id="bank_ifsc_code" type="text" class="form-control @error('bank_ifsc_code') is-invalid @enderror" name="bank_ifsc_code" value="{{ old('bank_ifsc_code') }}" required autocomplete="bank_ifsc_code" autofocus>
     
                                     @error('bank_ifsc_code')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <label for="image" class="col-md-4 col-form-label text-md-end">{{ __('Image') }}</label>
+    
+                                <div class="col-md-6">
+                                    <input id="image" type="file" class="form-control @error('image') is-invalid @enderror" name="image" value="{{ old('image') }}" required autocomplete="image" autofocus>
+    
+                                    @error('image')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <label for="aadhar_card" class="col-md-4 col-form-label text-md-end">{{ __('Aadhar Card') }}</label>
+    
+                                <div class="col-md-6">
+                                    <input id="aadhar_card" type="file" class="form-control @error('aadhar_card') is-invalid @enderror" name="aadhar_card" value="{{ old('aadhar_card') }}" required autocomplete="aadhar_card" autofocus>
+    
+                                    @error('aadhar_card')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <label for="pan_card" class="col-md-4 col-form-label text-md-end">{{ __('Pan Card') }}</label>
+    
+                                <div class="col-md-6">
+                                    <input id="pan_card" type="file" class="form-control @error('pan_card') is-invalid @enderror" name="pan_card" value="{{ old('pan_card') }}" required autocomplete="pan_card" autofocus>
+    
+                                    @error('pan_card')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <label for="cancel_cheque" class="col-md-4 col-form-label text-md-end">{{ __('Cancel Cheque') }}</label>
+    
+                                <div class="col-md-6">
+                                    <input id="cancel_cheque" type="file" class="form-control @error('cancel_cheque') is-invalid @enderror" name="cancel_cheque" value="{{ old('cancel_cheque') }}" required autocomplete="cancel_cheque" autofocus>
+    
+                                    @error('cancel_cheque')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <label for="passbook" class="col-md-4 col-form-label text-md-end">{{ __('Passbook') }}</label>
+    
+                                <div class="col-md-6">
+                                    <input id="passbook" type="file" class="form-control @error('passbook') is-invalid @enderror" name="passbook" value="{{ old('passbook') }}" required autocomplete="passbook" autofocus>
+    
+                                    @error('passbook')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <label for="qualification" class="col-md-4 col-form-label text-md-end">{{ __('Qualification') }}</label>
+    
+                                <div class="col-md-6">
+                                    <input id="qualification" type="file" class="form-control @error('qualification') is-invalid @enderror" name="qualification" value="{{ old('qualification') }}" required autocomplete="qualification" autofocus>
+    
+                                    @error('qualification')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>
