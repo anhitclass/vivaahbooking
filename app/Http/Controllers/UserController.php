@@ -12,6 +12,8 @@ use Exception;
 use Illuminate\Support\Str; 
 use App\Models\User;
 use App\Models\Inquiry;
+use DataTables;
+
 
 
 class UserController extends Controller
@@ -30,8 +32,15 @@ class UserController extends Controller
     }
     
     public function VendorsGet($id){
-        $get_vendors=Vendor::where('business_type',$id)->get();
-        return view('vendorlist',compact('get_vendors'));
+        return view('vendorlist',compact('id'));
+    }
+
+    public function VendorData($id){
+        $vendors = Vendor::where('business_type', $id)->get();
+
+        return response()->json([
+            'data' => $vendors, 
+        ]);
     }
 
     public function VendorPost($id)

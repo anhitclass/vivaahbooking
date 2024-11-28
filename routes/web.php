@@ -31,6 +31,8 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->midd
 // User Routes
 Route::get('/userchoose', [UserController::class, 'ChooseUser'])->name('chooseuser');
 Route::get('/all_vendors/{id}', [UserController::class, 'VendorsGet'])->name('VendorsGet');
+Route::get('/vendor_data/{id}', [UserController::class, 'VendorData'])->name('VendorData');
+
 Route::get('/vendorpost/{id}', [UserController::class, 'VendorPost'])->name('VendorPost');
 Route::get('/services', [UserController::class, 'services'])->name('services');
 Route::get('/gallery', [UserController::class, 'gallery'])->name('gallery');

@@ -13,6 +13,8 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.5/css/jquery.dataTables.min.css">
+
 
 
     <!-- Scripts -->
@@ -29,6 +31,7 @@
       <!-- Include core scripts (e.g., jQuery, Bootstrap) -->
       <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+      <script src="https://cdn.datatables.net/1.13.5/js/jquery.dataTables.min.js"></script>
 
   
       <!-- Add the stack for additional scripts -->
