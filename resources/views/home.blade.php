@@ -1,32 +1,12 @@
 @extends('layouts.app') 
 @section('content')
-<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-    <ol class="carousel-indicators">
-      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-    </ol>
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <img class="d-block w-100" src="images/slider 1.jpg" alt="First slide" style="height: 80vh;">
-      </div>
-      <div class="carousel-item">
-        <img class="d-block w-100" src="images/slider 2.jpg" alt="Second slide" style="height: 80vh;">
-      </div>
-      <div class="carousel-item">
-        <img class="d-block w-100" src="images/slider 3.jpg" alt="Third slide" style="height: 80vh;">
-      </div>
-    </div>
-    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="sr-only">Next</span>
-    </a>
-  </div>
 
+  <div class="home-header-video">
+            <video autoplay muted loop id="backgroundVideo">
+                <source src="https://videos.pexels.com/video-files/9206885/9206885-hd_1920_1080_25fps.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
   <!-- services  -->
   <div class="our-services1" id="couple">
     <div class="content">
@@ -38,7 +18,7 @@
             <a href="{{ route('VendorsGet', ['id' => $service->id]) }}" class="service-item" data-id="{{ $service->id }}">
                 {{-- Hardcoded image paths --}}
 
-                {{-- @if($loop->iteration == 1)
+                 @if($loop->iteration == 1)
                     <img src="https://images.pexels.com/photos/29171610/pexels-photo-29171610/free-photo-of-outdoor-wedding-ceremony-at-sunset.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Service 1" class="service-image">
 
                 @elseif($loop->iteration == 2)
@@ -92,7 +72,7 @@
                 @else
                     <img src="{{ asset('images/default.jpg') }}" alt="Default Service" class="service-image">
 
-                @endif --}}
+                @endif 
                 <div class="service-name">{{ $service->name }}</div>
             </a>
         @endforeach
@@ -365,7 +345,8 @@ Service Section
     </div>
   </div>
 </div>
-<div class="ww-footer bg-light">
+<div class="ww-footer">
+
   <div class="pg-footer">
     <footer class="footer">
       <!-- <svg class="footer-wave-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 100" preserveAspectRatio="none">
@@ -481,7 +462,7 @@ Service Section
       <div class="footer-copyright">
         <div class="footer-copyright-wrapper">
           <p class="footer-copyright-text">
-            <a class="footer-copyright-link" href="https://codingbiceps.com/" target="_self"> ©2024. | Designed By: Coding Biceps | All rights reserved. </a>
+            <a class="footer-copyright-link" href="" target="_self"> ©2024 </a>
           </p>
         </div>
       </div>

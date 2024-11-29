@@ -97,6 +97,12 @@
             justify-content: center;
             gap: 10px;
         }
+        .agentbtn{
+            font-size: 20px;
+            color: #ffffff;
+            margin-left: 85%;
+            margin-top:8%;
+        }
     </style>
 </head>
 
@@ -124,7 +130,8 @@
         </div>
     </div>
      {{-- Agent Card --}}
-     <a href="{{route('AgentCreate')}}" class="btn btn-primary mb-4">Wants To be an Agent</a>
+     <!-- <a href="{{route('AgentCreate')}}" class="btn btn-primary mb-4">Wants To be an Agent</a> -->
+        <p class="agentbtn">Wants To be an <span><a href="{{route('AgentCreate')}}">Agent</a> ?</span></p>
 </body>
 
 </html>

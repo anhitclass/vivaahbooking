@@ -62,7 +62,7 @@
     
                             <div class="row mb-0">
                                 <div class="col-md-8 offset-md-4">
-                                    <button disabled type="submit" class="login btn btn-primary">
+                                    <button  type="submit" class="login btn btn-primary">
                                         {{ __('Login') }}
                                     </button>
                                     {{-- @if (Route::has('password.request'))

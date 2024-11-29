@@ -51,7 +51,7 @@ body {
     text-align: center;
     padding: 10px;
     border: none;
-    border-radius: 40px;
+    border-radius: 10px;
     box-shadow: 0 0 10px rgba(0,0,0,.1);
     cursor: pointer;
     font-size: 16px;
@@ -61,6 +61,14 @@ body {
     background-color: #98989b;
 }
 .login{
-    width:100px;
+    width:150px;
     padding: 10px;
+}
+.card-aggent{
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, .2);
+    backdrop-filter: blur(20px);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+    margin-bottom: 5%; 
 }

@@ -9,16 +9,21 @@
 </head>
 <body>
 
-<div class="ww-nav-bar sticky-top bg-light">
-  <nav class="navbar navbar-expand-lg navbar-light">
+<div class="ww-nav-bar sticky-top bg-transparent">
+  <nav class="navbar navbar-expand-lg navbar-transparent">
     <div class="container">
-      <h1 class="h2"><a class="pl-4 navbar-brand" href="#">Vivaah Booking</a></h1>
+      <!-- <h1 class="h2"><a class="pl-4 navbar-brand" href="#">Vivaah Booking</a></h1> -->
+
+      <img src="{{ asset('images/vivaah_booking_logo.png') }}" alt="logo" style="width:180px;">
+
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ww-navbarNav" aria-controls="ww-navbarNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+
       <div class="collapse navbar-collapse text-uppercase" id="ww-navbarNav">
-        <ul class="navbar-nav ml-auto">
+        <!-- <ul class="navbar-nav ml-auto"> -->
+        <ul class="navbar-nav">
           <li class="nav-item"><a class="nav-link smooth-scroll" href="{{ route('home') }}">Home</a></li>
           <li class="nav-item"><a class="nav-link smooth-scroll" href="{{ route('services') }}">Services</a></li>
-          <!-- <li class="nav-item"><a class="nav-link smooth-scroll" href="{{ route('gallery') }}">Gallery</a></li> -->
+          <li class="nav-item"><a class="nav-link smooth-scroll" href="{{ route('gallery') }}">Gallery</a></li>
           <li class="nav-item"><a class="nav-link smooth-scroll" href="{{ route('contactus') }}">Contact us</a></li>
         </ul>
         
